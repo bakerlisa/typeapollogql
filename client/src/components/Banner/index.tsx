@@ -1,8 +1,18 @@
+import { printIntrospectionSchema } from 'graphql';
 import React, { FC } from 'react';
 
-const Banner: FC = () => (
+interface bannerInfo {
+    title: string,
+    name: string,
+    mission: string,
+    respond: number
+}
+
+const Banner: FC<bannerInfo> = (props): JSX.Element => (
     <div>
-        <h1>Your mission if you choose to accept it!</h1>
+        <h1>{props.name}, <br/> {props.title}</h1>
+        <h1><strong>Mission: </strong>{props.mission}</h1>
+        <p>you have {props.respond} to respond</p>
     </div>    
 );
 
